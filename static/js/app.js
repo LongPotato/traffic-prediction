@@ -10,6 +10,7 @@ myApp.controller('myController', function($scope, $http) {
   $scope.day = "";
   $scope.time = "";
   $scope.traffic = "";
+  $scope.predict = "";
 
   var url = "http://127.0.0.1:5000";
 
@@ -42,6 +43,7 @@ myApp.controller('myController', function($scope, $http) {
     $http.post(url + "/predict", model)
     .success(function (data, status) {
       console.log("Success", data);
+      $scope.predict = data;
     })
     .error(function (data, status) {
       console.log("Error");
