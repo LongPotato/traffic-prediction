@@ -9,6 +9,7 @@ myApp.controller('myController', function($scope, $http) {
   $scope.direction = "";
   $scope.day = "";
   $scope.time = "";
+  $scope.traffic = "";
 
   var url = "http://127.0.0.1:5000";
 
@@ -17,7 +18,8 @@ myApp.controller('myController', function($scope, $http) {
       roadId: $scope.roadId,
       direction: $scope.direction,
       day: $scope.day,
-      time: $scope.time
+      time: $scope.time,
+      traffic: $scope.traffic
     }
     console.log(model);
     $http.post(url + "/train", model)
