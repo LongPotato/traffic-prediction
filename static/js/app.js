@@ -30,4 +30,21 @@ myApp.controller('myController', function($scope, $http) {
       console.log("Error");
     });
   }
+
+  $scope.getPrediction = function() {
+    var model = {
+      roadId: $scope.roadId,
+      direction: $scope.direction,
+      day: $scope.day,
+      time: $scope.time,
+    }
+    console.log(model);
+    $http.post(url + "/predict", model)
+    .success(function (data, status) {
+      console.log("Success", data);
+    })
+    .error(function (data, status) {
+      console.log("Error");
+    });
+  }
 });
