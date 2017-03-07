@@ -22,19 +22,24 @@ def train():
 
     input.append([data["roadId"], data["direction"],data["day"],data["time"]])
     output.extend(data["traffic"])
-    ## put this when predicting with the input
-#    model = make_pipeline(PolynomialFeatures(2), Ridge())
- #   model.fit(input, output)
 
 
     return id
 
 
 @app.route("/predict", methods=['POST'])
-def train():
+def predict():
     data = json.loads(request.data.decode())
     id = data["roadId"]
-    return id;
+
+
+    model = make_pipeline(PolynomialFeatures(2), Ridge())
+    model.fit(input, output)
+
+    prediction = model.predict([[data["roadId"],data["direction"], data["day"], data["time"]]])
+
+
+    return prediction;
 
 
 if __name__ == "__main__":
