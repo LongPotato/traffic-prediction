@@ -30,5 +30,12 @@ def train():
     return id
 
 
+@app.route("/predict", methods=['POST'])
+def train():
+    data = json.loads(request.data.decode())
+    id = data["roadId"]
+    return id;
+
+
 if __name__ == "__main__":
     app.run()
