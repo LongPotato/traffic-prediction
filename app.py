@@ -37,11 +37,11 @@ def predict():
     model.fit(input, output)
     preData = [int(data["roadId"]), int(data["direction"]), int(data["day"]), int(data["time"])]
     print (preData)
-    model.predict([preData])
+    test  = model.predict([preData])
+    print(test)
 
 
-
-    return (model.predict([preData]))
+    return str(test)
 
 
 if __name__ == "__main__":
