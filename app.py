@@ -31,7 +31,7 @@ def train():
 
 
 @app.route("/predict", methods=['POST'])
-def train():
+def predict():
     data = json.loads(request.data.decode())
     id = data["roadId"]
     return id;
